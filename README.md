@@ -39,6 +39,7 @@ cp src/candybar.* <search_path>
 
 Import the package and create the progress bar object:
 
+###### Python
 ```python
 # Python
 from candy_bar import CandyBar
@@ -46,6 +47,7 @@ from candy_bar import CandyBar
 cb = CandyBar(100, "Progress")
 ```
 
+###### C++
 ```C++
 // C++
 #include "candybar.h"
@@ -59,19 +61,22 @@ CandyBar cb(100, "Progress");
 
 | Parameter | Default        | Description                                               |
 | ---       | ---            | ---                                                       |
-| total     | `None`         | Defines the value corresponding to 100%                   |
+| total     |   100          | Defines the value corresponding to 100%                   |
 | message   | `None`         | Write some text at the beginning of the line              |
 | width     | `console size` | Size (in chars) of the bar, by default max console size   |
 
 To update the position of the progress bar use the `update` method:
 
+###### Python
 ```python
 total = 100
+
 for i in range(total + 1):
     # Your code goes here
     cb.update(i)
 ```
 
+###### C++
 ```C++
 int total = 100;
 
@@ -81,8 +86,21 @@ for (int i = 0; i <= total; i++)
     cb.update(i);
 }
 ```
+The __total__ value and the __message__ of the progress bar can be changed:
+
+###### Python
+```python
+cb.set_total(150)
+cb.set_message("Another message")
+```
+
+###### C++
+```C++
+cb.set_total(150);
+cb.set_message("Another message");
+```
 
 #### Like what I do?
 
 Buy me coffee
-<img src="https://web.getmonero.org/press-kit/symbols/monero-symbol-480.png" alt="Donate with monero" width="20"/> `85jJPcfLPZRUKm3Re6qHZsKBZskVS2tYMWFoY5sYXUSQJzqzqpuPFepXMtqTKCRfuhYXaiJ3zQVeRPDYJUfepVjnJDpApH5`
+<img src="https://web.getmonero.org/press-kit/symbols/monero-symbol-480.png" alt="Donate with monero" width="15"/> `85jJPcfLPZRUKm3Re6qHZsKBZskVS2tYMWFoY5sYXUSQJzqzqpuPFepXMtqTKCRfuhYXaiJ3zQVeRPDYJUfepVjnJDpApH5`
