@@ -12,8 +12,10 @@
 class CandyBar
 {
     public:
-        CandyBar(int total, std::string message="", int width=0);
+        CandyBar(int total=100, std::string message="", int width=0);
         void update(int current);
+        void set_total(int total);
+        void set_message(std::string message);
 
     private:
         void get_terminal_width(int& width);

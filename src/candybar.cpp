@@ -14,6 +14,21 @@ CandyBar::CandyBar(int total, std::string message, int width)
         bar_width = width;
 }
 
+void CandyBar::set_total(int total)
+{
+    // Set the total value
+    if (total > 0)
+        total_value = total;
+}
+
+void CandyBar::set_message(std::string message)
+{
+    // Change the message
+    int last_text_width = text.length();
+    text = message;
+    bar_width -= (text.length() - last_text_width);
+}
+
 void CandyBar::get_terminal_width(int& width)
 {
     // Get the width of the terminal window
