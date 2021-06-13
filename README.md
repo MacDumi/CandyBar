@@ -81,3 +81,8 @@ for (int i = 0; i <= total; i++)
     cb.update(i);
 }
 ```
+
+#### Like what I do?
+
+Buy me coffee [![Donate with
+Monero](https://en.cryptobadges.io/badge/micro/439DnPPwRkKjfvviLDQX3GcrHSJoUso2rhE8UDqsk97gK6Mg4JVmDhF2L4Sdq63DvCGdDRnH5v51e8FaMkVvhg4eEwxfkCF)](https://en.cryptobadges.io/donate/439DnPPwRkKjfvviLDQX3GcrHSJoUso2rhE8UDqsk97gK6Mg4JVmDhF2L4Sdq63DvCGdDRnH5v51e8FaMkVvhg4eEwxfkCF)
