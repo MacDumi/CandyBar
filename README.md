@@ -2,7 +2,7 @@
 # CandyBar
 
 A Progress Bar inspired by Arch pacman with `ILoveCandy` option enabled.
-![CandyBar](/images/candybar.gif)
+![CandyBar](https://github.com/MacDumi/CandyBar/blob/dc57d6b6d3d807b85b1b5e8b0eb4d7ab5313cf65/images/candybar.gif)
 
 ## Instalation
 
@@ -18,11 +18,11 @@ cd CandyBar
 sudo python.py install
 ```
 
-<!-- #### Install with `pip` -->
+#### Install with `pip`
 
-<!-- ```bash -->
-<!-- pip install candybar -->
-<!-- ``` -->
+```bash
+pip install candy_bar
+```
 
 ### C++
 
@@ -41,7 +41,7 @@ Import the package and create the progress bar object:
 
 ```python
 # Python
-from candybar import CandyBar
+from candy_bar import CandyBar
 
 cb = CandyBar(100, "Progress")
 ```

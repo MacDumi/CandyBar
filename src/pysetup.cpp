@@ -2,7 +2,7 @@
 #include <pybind11/pybind11.h>
 namespace py = pybind11;
 
-PYBIND11_MODULE(candybar, m) {
+PYBIND11_MODULE(candy_bar, m) {
     py::class_<CandyBar>(m, "CandyBar")
         .def(py::init<int, std::string, int>(), "Create a progress bar",
                             py::arg("total")=100, py::arg("message")="",
