@@ -84,5 +84,5 @@ for (int i = 0; i <= total; i++)
 
 #### Like what I do?
 
-Buy me coffee [![Donate with
-Monero](https://en.cryptobadges.io/badge/micro/439DnPPwRkKjfvviLDQX3GcrHSJoUso2rhE8UDqsk97gK6Mg4JVmDhF2L4Sdq63DvCGdDRnH5v51e8FaMkVvhg4eEwxfkCF)](https://en.cryptobadges.io/donate/439DnPPwRkKjfvviLDQX3GcrHSJoUso2rhE8UDqsk97gK6Mg4JVmDhF2L4Sdq63DvCGdDRnH5v51e8FaMkVvhg4eEwxfkCF)
+Buy me coffee <img src="https://web.getmonero.org/press-kit/symbols/monero-symbol-480.png" alt="Donate with monero" width="80"/>
+__85jJPcfLPZRUKm3Re6qHZsKBZskVS2tYMWFoY5sYXUSQJzqzqpuPFepXMtqTKCRfuhYXaiJ3zQVeRPDYJUfepVjnJDpApH5__
