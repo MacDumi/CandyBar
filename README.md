@@ -1,4 +1,4 @@
-![Team FOSSA](https://app.fossa.com/reports/7f7a545b-3c5a-4c11-b6ba-2f898e3d0820)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMacDumi%2FCandyBar.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FMacDumi%2FCandyBar?ref=badge_shield)
 # CandyBar
 
 A Progress Bar inspired by Arch pacman with `ILoveCandy` option enabled.
@@ -77,7 +77,7 @@ int total = 100;
 
 for (int i = 0; i <= total; i++)
 {
-    \\ Your code goes here
+    // Your code goes here
     cb.update(i);
 }
 ```
