@@ -39,7 +39,6 @@ cp src/candybar.* <search_path>
 
 Import the package and create the progress bar object:
 
-###### Python
 ```python
 # Python
 from candy_bar import CandyBar
@@ -47,7 +46,6 @@ from candy_bar import CandyBar
 cb = CandyBar(100, "Progress")
 ```
 
-###### C++
 ```C++
 // C++
 #include "candybar.h"
@@ -67,8 +65,8 @@ CandyBar cb(100, "Progress");
 
 To update the position of the progress bar use the `update` method:
 
-###### Python
 ```python
+# Python
 total = 100
 
 for i in range(total + 1):
@@ -76,8 +74,8 @@ for i in range(total + 1):
     cb.update(i)
 ```
 
-###### C++
 ```C++
+// C++
 int total = 100;
 
 for (int i = 0; i <= total; i++)
@@ -88,14 +86,14 @@ for (int i = 0; i <= total; i++)
 ```
 The __total__ value and the __message__ of the progress bar can be changed:
 
-###### Python
 ```python
+# Python
 cb.set_total(150)
 cb.set_message("Another message")
 ```
 
-###### C++
 ```C++
+// C++
 cb.set_total(150);
 cb.set_message("Another message");
 ```
