@@ -1,17 +1,26 @@
 #include "candybar.h"
 
-CandyBar::CandyBar(int total, std::string message, int width)
+CandyBar::CandyBar(int total, std::string message, int width,
+        bool left_justified)
 {
     // Initialize the object
     total_value = total;
     text = message;
+    lft_jst = left_justified;
+    get_terminal_width(screen_width);
     if (width == 0)
     {
         // If no bar width was provided use the whole width
-        get_terminal_width(bar_width);
+        bar_width = screen_width;
         bar_width -= (message.length() + 8);
     } else
-        bar_width = width;
+    {
+        if ((int)message.length() + 8 + width > screen_width)
+        {
+            bar_width = screen_width - message.length() - 8;
+            std::cout << "Reducing the widht to " << bar_width << std::endl;
+        } else bar_width = width;
+    }
 }
 
 void CandyBar::set_total(int total)
@@ -24,11 +33,19 @@ void CandyBar::set_total(int total)
 void CandyBar::set_message(std::string message)
 {
     // Change the message
-    int last_text_width = text.length();
+    if ((int)message.length() + 8 + bar_width > screen_width)
+    {
+        int last_text_width = text.length();
+        bar_width -= (message.length() - last_text_width);
+    }
     text = message;
-    bar_width -= (text.length() - last_text_width);
 }
 
+void CandyBar::set_left_justified(bool left_justified)
+{
+    // Change the justification
+    lft_jst = left_justified;
+}
 void CandyBar::get_terminal_width(int& width)
 {
     // Get the width of the terminal window
@@ -48,10 +65,16 @@ void CandyBar::update(int current)
     // Update the progress bar
     float progress = (float) current / total_value;
 
-    if (text == "")
-        std::cout << "[";
-    else
-        std::cout << text << " [";
+    std::cout << text;
+
+    if (!lft_jst)
+    {
+        int n_spaces = screen_width - text.length() - 8 - bar_width;
+        for (int i = 0; i < n_spaces; i++)
+            std::cout << " ";
+    }
+
+    std::cout << " [";
 
     int pos = bar_width * progress;
     for (int i = 0; i < bar_width; ++i) {

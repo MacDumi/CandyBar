@@ -15,10 +15,10 @@ Clone the repository, build, and install the package:
 ```bash
 git clone https://github.com/MacDumi/CandyBar.git
 cd CandyBar
-sudo python.py install
+pip install .
 ```
 
-#### Install with `pip`
+#### Install from PyPi
 
 ```bash
 pip install candy_bar
@@ -57,11 +57,12 @@ CandyBar cb(100, "Progress");
 
 #### Parameters
 
-| Parameter | Default        | Description                                               |
-| ---       | ---            | ---                                                       |
-| total     |   100          | Defines the value corresponding to 100%                   |
-| message   | `None`         | Write some text at the beginning of the line              |
-| width     | `console size` | Size (in chars) of the bar, by default max console size   |
+| Parameter      | Default        | Description                                                 |
+| ---            | ---            | ---                                                         |
+| total          |   100          | Defines the value corresponding to 100%                     |
+| message        | `None`         | Write some text at the beginning of the line                |
+| width          | `console size` | Size (in chars) of the bar, by default max console size     |
+| left_justified |   True         | Defines the justification of the bar (not the message text) |
 
 To update the position of the progress bar use the `update` method:
 
@@ -84,18 +85,20 @@ for (int i = 0; i <= total; i++)
     cb.update(i);
 }
 ```
-The __total__ value and the __message__ of the progress bar can be changed:
+The __total__ value, the __message__, and the __justification__ of the progress bar can be changed:
 
 ```python
 # Python
 cb.set_total(150)
 cb.set_message("Another message")
+cb.set_left_justified(False)
 ```
 
 ```C++
 // C++
 cb.set_total(150);
 cb.set_message("Another message");
+cb.set_left_justified(false);
 ```
 
 #### Like what I do?

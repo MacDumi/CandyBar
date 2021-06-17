@@ -12,13 +12,16 @@
 class CandyBar
 {
     public:
-        CandyBar(int total=100, std::string message="", int width=0);
+        CandyBar(int total=100, std::string message="", int width=0,
+                bool left_justified=true);
         void update(int current);
         void set_total(int total);
         void set_message(std::string message);
+        void set_left_justified(bool left_justified=true);
 
     private:
         void get_terminal_width(int& width);
-        int total_value, bar_width;
+        int total_value, bar_width, screen_width;
         std::string text;
+        bool lft_jst;
 };
