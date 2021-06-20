@@ -1,8 +1,15 @@
 from setuptools import setup, Extension
-from Cython.Build import cythonize
 from os import path
+try:
+    from Cython.Build import cythonize
+except:
+    import sys, subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "cython"])
+finally:
+    from Cython.Build import cythonize
 
-__version__ = "1.2.7"
+
+__version__ = "1.2.11"
 
 
 this_directory = path.abspath(path.dirname(__file__))
@@ -15,7 +22,7 @@ setup(
     author="Dumitru Duca",
     author_email="me@dumitruduca.com",
     url="https://github.com/MacDumi/CandyBar",
-    download_url="https://github.com/MacDumi/CandyBar/archive/refs/tags/1.2.7.tar.gz",
+    download_url="https://github.com/MacDumi/CandyBar/archive/refs/tags/1.2.10.tar.gz",
     description="A simple progress bar with the ILoveCandy style",
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -23,7 +30,7 @@ setup(
     ext_modules = cythonize(Extension("candy_bar", ["candy_bar.pyx"],
                             include_dirs=["include/"])),
     zip_safe=False,
-    install_requires=['cython'],
+    setup_requires=['setuptools>=18.0', 'cython'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
