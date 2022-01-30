@@ -1,5 +1,6 @@
 from setuptools import setup, Extension
 from os import path
+
 try:
     from Cython.Build import cythonize
 except:
@@ -8,8 +9,7 @@ except:
 finally:
     from Cython.Build import cythonize
 
-
-__version__ = "1.2.11"
+__version__ = "1.3.1"
 
 
 this_directory = path.abspath(path.dirname(__file__))
@@ -22,7 +22,7 @@ setup(
     author="Dumitru Duca",
     author_email="me@dumitruduca.com",
     url="https://github.com/MacDumi/CandyBar",
-    download_url="https://github.com/MacDumi/CandyBar/archive/refs/tags/1.2.10.tar.gz",
+    download_url="https://github.com/MacDumi/CandyBar/archive/refs/tags/1.3.1.tar.gz",
     description="A simple progress bar with the ILoveCandy style",
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -42,5 +42,6 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
       ],
 )
