@@ -2,7 +2,7 @@
 # CandyBar
 
 A Progress Bar inspired by Arch pacman with `ILoveCandy` option enabled.
-![CandyBar](https://github.com/MacDumi/CandyBar/blob/dc57d6b6d3d807b85b1b5e8b0eb4d7ab5313cf65/images/candybar.gif)
+![CandyBar](https://github.com/MacDumi/CandyBar/blob/eef60efef1e73c8a2a0628ad314226a11b21cd19/images/candybar.gif)
 
 ## Instalation
 
@@ -32,7 +32,7 @@ Clone the repository and copy the files to the search path of your compiler:
 ```bash
 git clone https://github.com/MacDumi/CandyBar.git
 cd CandyBar
-cp src/candybar.* <search_path>
+make && make install
 ```
 
 ## Usage
@@ -85,6 +85,26 @@ for (int i = 0; i <= total; i++)
     cb.update(i);
 }
 ```
+The progress bar can be disabled:
+
+```python
+# Python
+def function(verbose):
+    ...
+    cb.disable(not verbose)
+    ...
+```
+
+```C++
+// C++
+void function(bool verbose)
+{
+    ...
+    cb.disable(!verbose);
+    ...
+}
+```
+
 The __total__ value, the __message__, and the __justification__ of the progress bar can be changed:
 
 ```python
