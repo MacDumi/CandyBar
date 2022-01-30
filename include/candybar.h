@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <sstream>
+#include <chrono>
 
 #if defined(_WIN32)
 #define WIN32_LEAN_AND_MEAN
@@ -24,4 +27,7 @@ class CandyBar
         int total_value, bar_width, screen_width;
         std::string text;
         bool lft_jst;
+        float eta; // in ms
+        std::chrono::time_point<std::chrono::system_clock> last_update;
+
 };

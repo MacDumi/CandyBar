@@ -18,9 +18,11 @@ CandyBar::CandyBar(int total, std::string message, int width,
         if ((int)message.length() + 8 + width > screen_width)
         {
             bar_width = screen_width - message.length() - 8;
-            std::cout << "Reducing the widht to " << bar_width << std::endl;
+            std::cout << "[CandyBar] Reducing the widht to " << bar_width << std::endl;
         } else bar_width = width;
     }
+
+    last_update = std::chrono::system_clock::now();
 }
 
 void CandyBar::set_total(int total)
@@ -62,22 +64,60 @@ void CandyBar::get_terminal_width(int& width)
 
 void CandyBar::update(int current)
 {
+    // Get the current time
+    auto now = std::chrono::system_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+                                                    now - last_update).count();
+
+    // Compute the ETA
+    eta = (float)(total_value - current) * duration / 1000.0;
+
+    // Assign the current tim to the last_update
+    last_update = now;
+
+    std::stringstream ss;
+    ss << '[';
+    if (current  <= 1)
+    {
+        ss << "--:--]";
+    }
+    else
+    {
+        if (eta > 3599)
+        {
+            int hours = eta / 3600;
+            ss << hours << ':';
+            eta = eta - hours * 3600;
+        }
+        if (eta > 59)
+        {
+            int mins = eta / 60;
+            ss << mins << ':';
+            eta = eta - mins * 60;
+        }
+        else
+            ss << "0:";
+
+        ss << std::setfill('0') << std::setw(2) << (int) eta << ']';
+    }
+
     // Update the progress bar
     float progress = (float) current / total_value;
 
     std::cout << text;
 
+
     if (!lft_jst)
     {
-        int n_spaces = screen_width - text.length() - 8 - bar_width;
+        int n_spaces = screen_width - text.length() - 8 - bar_width - ss.gcount();
         for (int i = 0; i < n_spaces; i++)
             std::cout << " ";
     }
 
-    std::cout << " [";
-
-    int pos = bar_width * progress;
-    for (int i = 0; i < bar_width; ++i) {
+    std::cout << ' ' << ss.str() << '[';
+    int eta_length = ss.str().length();
+    int pos = (bar_width - eta_length) * progress;
+    for (int i = 0; i < bar_width - eta_length; ++i) {
         if (i < pos) std::cout << '-';
         else if (i == pos)
         {
