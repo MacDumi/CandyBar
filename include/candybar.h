@@ -17,6 +17,7 @@ class CandyBar
     public:
         CandyBar(int total=100, std::string message="", int width=0,
                 bool left_justified=true);
+        void disable(bool _disable);
         void update(int current);
         void set_total(int total);
         void set_message(std::string message);
@@ -26,6 +27,7 @@ class CandyBar
         void get_terminal_width(int& width);
         int total_value, bar_width, screen_width;
         std::string text;
+        bool verbose = true;
         bool lft_jst;
         float eta; // in ms
         std::chrono::time_point<std::chrono::system_clock> last_update;

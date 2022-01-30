@@ -32,6 +32,11 @@ void CandyBar::set_total(int total)
         total_value = total;
 }
 
+void CandyBar::disable(bool _disable)
+{
+    verbose = !_disable;
+}
+
 void CandyBar::set_message(std::string message)
 {
     // Change the message
@@ -74,6 +79,10 @@ void CandyBar::update(int current)
 
     // Assign the current tim to the last_update
     last_update = now;
+
+    // Don't show the progress bar if disables
+    if (!verbose)
+        return;
 
     std::stringstream ss;
     ss << '[';
