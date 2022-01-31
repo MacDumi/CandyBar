@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <deque>
 #include <iomanip>
 #include <sstream>
 #include <chrono>
@@ -29,6 +30,9 @@ class CandyBar
         std::string text;
         bool verbose = true;
         bool lft_jst;
+        std::deque<int> dur_buffer;
+        unsigned int avg_window;
+        int win_duration; // in ms
         float eta; // in ms
         std::chrono::time_point<std::chrono::system_clock> last_update;
 
