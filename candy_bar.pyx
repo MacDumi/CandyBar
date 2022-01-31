@@ -11,11 +11,15 @@ cimport candy_def as cpp
 cdef class CandyBar:
     cdef cpp.CandyBar *thisptr
     def __cinit__(self, int total=100, str message="",
-                    int width=0, bool left_justified=True):
+                 int width=0, bool left_justified=True, bool disable=False):
         cdef string msg = message.encode('UTF-8')
-        self.thisptr = new cpp.CandyBar(total, msg, width, left_justified)
+        self.thisptr = new cpp.CandyBar(total, msg, width,
+                                                left_justified, disable)
     def __dealloc__(self):
         del self.thisptr
+    def disable(self, bool _disable):
+        """ Disable the progress bar """
+        self.thisptr.disable(_disable)
     def update(self, int current):
         """ Update the progress bar """
         self.thisptr.update(current)

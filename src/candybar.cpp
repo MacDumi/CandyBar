@@ -1,7 +1,7 @@
 #include "candybar.h"
 
 CandyBar::CandyBar(int total, std::string message, int width,
-        bool left_justified)
+        bool left_justified, bool _disable)
 {
     // Initialize the object
     total_value = total;
@@ -21,6 +21,8 @@ CandyBar::CandyBar(int total, std::string message, int width,
             std::cout << "[CandyBar] Reducing the widht to " << bar_width << std::endl;
         } else bar_width = width;
     }
+
+    verbose = !_disable;
 
     last_update = std::chrono::system_clock::now();
 }

@@ -16,7 +16,7 @@ class CandyBar
 {
     public:
         CandyBar(int total=100, std::string message="", int width=0,
-                bool left_justified=true);
+                bool left_justified=true, bool _disable=false);
         void disable(bool _disable);
         void update(int current);
         void set_total(int total);

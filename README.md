@@ -27,7 +27,7 @@ pip install candy_bar
 ### C++
 
 Don't like `Python`? Use it with `C++`!
-Clone the repository and copy the files to the search path of your compiler:
+Clone the repository and either install the library or build against it:
 
 ```bash
 git clone https://github.com/MacDumi/CandyBar.git
@@ -63,6 +63,7 @@ CandyBar cb(100, "Progress");
 | message        | `None`         | Write some text at the beginning of the line                |
 | width          | `console size` | Size (in chars) of the bar, by default max console size     |
 | left_justified |   True         | Defines the justification of the bar (not the message text) |
+| disable        |   False        | When set, the progress bar will be disabled                 |
 
 To update the position of the progress bar use the `update` method:
 
