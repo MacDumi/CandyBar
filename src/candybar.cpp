@@ -22,7 +22,7 @@ CandyBar::CandyBar(int total, std::string message, int width,
         } else bar_width = width;
     }
 
-    avg_window = total_value / 50;
+    avg_window = total_value / 100;
     if (avg_window < 5) avg_window = 5;
 
     verbose = !_disable;
@@ -81,7 +81,7 @@ void CandyBar::update(int current)
 {
     // Get the current time
     auto now = std::chrono::system_clock::now();
-    int duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+    long duration = std::chrono::duration_cast<std::chrono::microseconds>(
                                                     now - last_update).count();
     if (dur_buffer.size() == avg_window)
     {
@@ -93,7 +93,8 @@ void CandyBar::update(int current)
     win_duration += duration;
 
     // Compute the ETA
-    eta = (float)(total_value - current) * win_duration / 1000.0 / dur_buffer.size();
+    eta = (double)(total_value - current) * win_duration / 1000000.0
+                                                           / dur_buffer.size();
 
     // Assign the current tim to the last_update
     last_update = now;

@@ -32,8 +32,8 @@ class CandyBar
         bool lft_jst;
         std::deque<int> dur_buffer;
         unsigned int avg_window;
-        int win_duration; // in ms
-        float eta; // in ms
+        long win_duration; // in us
+        double eta; // in us
         std::chrono::time_point<std::chrono::system_clock> last_update;
 
 };
