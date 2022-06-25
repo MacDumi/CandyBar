@@ -81,7 +81,7 @@ void CandyBar::update(int current)
 {
     // Get the current time
     auto now = std::chrono::system_clock::now();
-    long duration = std::chrono::duration_cast<std::chrono::microseconds>(
+    long duration = std::chrono::duration_cast<std::chrono::nanoseconds>(
                                                     now - last_update).count();
     if (dur_buffer.size() == avg_window)
     {
@@ -93,7 +93,7 @@ void CandyBar::update(int current)
     win_duration += duration;
 
     // Compute the ETA
-    eta = (double)(total_value - current) * win_duration / 1000000.0
+    eta = (double)(total_value - current) * win_duration / 1000000000.0
                                                            / dur_buffer.size();
 
     // Assign the current tim to the last_update
