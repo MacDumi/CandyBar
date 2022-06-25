@@ -14,7 +14,7 @@ OBJECTS   := $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 
 MAJOR_V := 1
 MINOR_V := 3
-BUILD_V := 4
+BUILD_V := 5
 
 .PHONY: all build clean install
 
